@@ -4,12 +4,12 @@ import java.util.*;
 
 public class TestClient{
 	public static void main(String[] args){
+		RadixSorter radixTest = new RadixSorter();
 		CountingSorter countTest = new CountingSorter(9);
-		int[] testAr = {12, 14, 19, 13, 27, 34, 21, 35};
+		int[] testAr = {122, 124, 319, 113, 227, 10000004, 321, 135};
+		int[] testDigits = getLastDigits(testAr);
+		radixTest.sort(testAr);
 		System.out.println(Arrays.toString(testAr));
-		System.out.println(Arrays.toString(getLastDigits(testAr)));
-
-		countTest.sort(testAr,getLastDigits(testAr));
 	}
 
 	public static int[] getLastDigits(int[] vals){

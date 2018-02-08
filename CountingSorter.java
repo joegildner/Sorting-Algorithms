@@ -27,11 +27,14 @@ public class CountingSorter{
 		for(int i=1; i<countArray.length; i++){
 			countArray[i] += countArray[i-1];
 		}
-
+		// Use above arrays to place the values into the correct slots in sortedValues
 		for(int i=digit.length-1; i>=0; i--){
 			sortedValues[countArray[digit[i]]-1] = value[i];
 			countArray[digit[i]] -= 1;
 		}
-		System.out.println(Arrays.toString(sortedValues));
+		// Put the sorted values into the correct slots in the actual array, value
+		for(int i=0; i<value.length; i++){
+			value[i] = sortedValues[i];
+		}
 	}
 }

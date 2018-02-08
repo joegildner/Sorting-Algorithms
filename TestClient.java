@@ -5,7 +5,7 @@ import java.util.*;
 public class TestClient{
 	public static void main(String[] args){
 		CountingSorter countTest = new CountingSorter(9);
-		int[] testAr = {12, 14, 19, 13};
+		int[] testAr = {12, 14, 19, 13, 27, 34, 21, 35};
 		System.out.println(Arrays.toString(testAr));
 		System.out.println(Arrays.toString(getLastDigits(testAr)));
 

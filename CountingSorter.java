@@ -16,13 +16,22 @@ public class CountingSorter{
 	// Counting sort method, parameters are the original unsorted array of integers and the
 	// Corresponding array of digits with which to sort
 	public void sort(int[] value, int digit[]){
+		int[] sortedValues = new int[value.length];
 		//Initialize the countArray with all 0s
 		int[] countArray = new int[maxVal+1]; //need a space to count each digit, including 0 (thus the +1)
 		//Iterate through the count array, counting the occurences of each digit
 		for(int i=0; i<digit.length; i++){
 			countArray[digit[i]]++;
 		}
-		System.out.println(Arrays.toString(countArray));
+		// Change countArray into an cumulative sum of its counts
+		for(int i=1; i<countArray.length; i++){
+			countArray[i] += countArray[i-1];
+		}
 
+		for(int i=digit.length-1; i>=0; i--){
+			sortedValues[countArray[digit[i]]-1] = value[i];
+			countArray[digit[i]] -= 1;
+		}
+		System.out.println(Arrays.toString(sortedValues));
 	}
 }
